@@ -1,11 +1,13 @@
 use std::collections::HashSet;
 
+const SIZE: usize = 4;
+
+
 pub fn calculate(s: String) -> usize {
-    for idx in 0..s.len() - 4 {
-        let substring = &s[idx..idx + 4];
-        let set: HashSet<_> = HashSet::from_iter(substring.chars());
-        if set.len() == 4 {
-            return idx + 4;
+    for idx in 0..s.len() - SIZE {
+        let set = &s[idx..idx + SIZE].chars().collect::<HashSet<_>>();
+        if set.len() == SIZE {
+            return idx + SIZE;
         }
     }
 
