@@ -1,6 +1,5 @@
 #[derive(Debug)]
 struct File {
-    name: String,
     size: u32,
 }
 
@@ -82,14 +81,10 @@ pub fn calculate(s: String) -> u32 {
             } else {
                 path.pop();
             }
-        } else if commands[0] == "$" {
-            // println!("ls dir: {:?}", commands);
-        } else if commands[0] == "dir" {
-            // println!("listed directory: {:?}", commands)
+        } else if commands[0] == "$" || commands[0] == "dir" {
         } else {
             // println!("listed file: {:?}", commands)s
             current.children.push(Children::File(File {
-                name: commands[1].to_string(),
                 size: commands[0].parse().unwrap(),
             }))
         }

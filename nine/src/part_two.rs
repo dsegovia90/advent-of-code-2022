@@ -75,26 +75,22 @@ pub fn calculate(s: String) -> usize {
                     } else {
                         tail.y += 1;
                     }
-                } else if head.x - tail.x == 2 && head.y - tail.y == 2
-                    || head.x - tail.x == 1 && head.y - tail.y == 2
+                } else if !(head.y - tail.y != 2 || head.x - tail.x != 2 && head.x - tail.x != 1)
                     || head.x - tail.x == 2 && head.y - tail.y == 1
                 {
                     tail.x += 1;
                     tail.y += 1;
-                } else if head.x - tail.x == -2 && head.y - tail.y == 2
-                    || head.x - tail.x == -1 && head.y - tail.y == 2
+                } else if !(head.y - tail.y != 2 || head.x - tail.x != -2 && head.x - tail.x != -1)
                     || head.x - tail.x == -2 && head.y - tail.y == 1
                 {
                     tail.x -= 1;
                     tail.y += 1;
-                } else if head.x - tail.x == 2 && head.y - tail.y == -2
-                    || head.x - tail.x == 1 && head.y - tail.y == -2
+                } else if !(head.y - tail.y != -2 || head.x - tail.x != 2 && head.x - tail.x != 1)
                     || head.x - tail.x == 2 && head.y - tail.y == -1
                 {
                     tail.x += 1;
                     tail.y -= 1;
-                } else if head.x - tail.x == -2 && head.y - tail.y == -2
-                    || head.x - tail.x == -1 && head.y - tail.y == -2
+                } else if (head.x - tail.x == -1 || head.x - tail.x == -2) && head.y - tail.y == -2
                     || head.x - tail.x == -2 && head.y - tail.y == -1
                 {
                     tail.x -= 1;
@@ -109,6 +105,7 @@ pub fn calculate(s: String) -> usize {
     tail_unique_positions.len()
 }
 
+#[allow(dead_code)]
 fn printer(arr: [Point; 10]) {
     let mut screen = [['.'; 6]; 5];
 
