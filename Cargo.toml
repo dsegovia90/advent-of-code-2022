@@ -9,6 +9,7 @@ members = [
   "six",
   "seven",
   "eight",
+  "nine",
 ]
 
 [workspace.dependencies]
